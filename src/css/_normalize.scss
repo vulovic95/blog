@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Roboto', sans-serif;
+	outline:none;
+	font-weight:400;
+}
+h1, h2, h3, h4, h5, h6, p, span {
+	font-weight: normal;
+}
+a{
+	text-decoration: none;
+	color: $lightBlue;
+}
+li{
+	list-style-type: none;
+}
+.small{
+	font-size: 10px;
+}
+.medium{
+	font-size: 13px;
+}
+.normal{
+	font-size: 16px;
+}
+.big{
+	font-size: 20px;
+}
+.caps{
+	text-transform: uppercase;
+}
+.bold{
+	font-weight: bold;
+}
+.disabled{
+	color: $disabledText;
+}
+.secondary{
+	color: $secondaryText;
+}
+.error{
+	color: $red;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+}
+.success{
+	color: $green;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+}
+.center{
+	text-align:center!important;
+}
+.clear{
+	clear:both;
+}
+code{
+	font-family:consolas;
+	display: block;
+	padding: 0px 10px;
+	margin: 10px 0px;
+	@extend .medium;
+	text-align:left;
+}
