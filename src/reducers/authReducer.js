@@ -4,10 +4,7 @@ const authReducer = (state = {
 }, action) => {
 	switch(action.type){
 		case "SIGNED_IN":
-			state = {
-				...state, 
-				user: action.payload
-			} 
+			state = {	...state, user: action.payload	} 
 			break;
 		case "GET_AUTHENTICATED_USERS":
 			state = {...state}	

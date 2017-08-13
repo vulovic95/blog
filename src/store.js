@@ -25,7 +25,6 @@ const error = (store) => (next) => (action) =>{
 
 const store = createStore(combineReducers({generalReducer, authReducer, postReducer, commentReducer, tagReducer, timelineReducer, tutorialReducer}), {}, applyMiddleware(promise(),thunk, logger, error));
 
-store.subscribe(()=>{});
 firebaseApp.auth().onAuthStateChanged((user) => {
 	store.dispatch(getAuthenticatedUsers());
 	store.dispatch(getAllPosts());

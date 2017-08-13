@@ -60,13 +60,13 @@ export class Sidebar extends React.Component{
       {filteredPosts}
       
       <h3>Find post by tag</h3>
-      {tags}
+      {tags.length==0 ? <h4>No tagged posts yet</h4> : tags}
 
       <h3>Tutorials</h3>
-      {tutorials}
+      {tutorials.length==0 ? <h4>No tutorials yet</h4> : tutorials}
 
       <h3>Recent Posts</h3>
-      {recentPosts}
+      {recentPosts.length == 0 ?  <h4>No posts yet</h4> : recentPosts}
 
       <h3>Find out more about me</h3>
       <h4 className="hoverableLink" ><span className="sidebarIcon"><FaLinkedIn size={20} fill={"gray"}/></span><a href="https://www.linkedin.com/in/vulovic95/" target="_blank">Connect with me on LinkedIn</a></h4>

@@ -30,16 +30,11 @@ const timelineReducer = (state = {
 		case "DELETE_TIMELINE_REJECTED":
 			state = { ...state, error:action.payload }
 			break;
-
 		case "UPDATE_TIMELINE":
 			state = { ...state }
 			break;
 		case "UPDATE_TIMELINE_FULFILLED":
-			state = {
-				 ...state,
-				 timelines: state.timelines.map(item=>  item._id === action.payload.data.id ? {...item, text: action.payload.data.text, year: action.payload.data.year, singlePoint: action.payload.data.singlePoint, timelineType: action.payload.data.timelineType} : item )
-			}
-			console.log(action.payload.data);
+			state = { ...state,	 timelines: state.timelines.map(item=>  item._id === action.payload.data.id ? {...item, text: action.payload.data.text, year: action.payload.data.year, singlePoint: action.payload.data.singlePoint, timelineType: action.payload.data.timelineType} : item )	}
 			break;
 		case "UPDATE_TIMELINE_REJECTED":
 			state = { ...state, error: action.payload }

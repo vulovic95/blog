@@ -12,8 +12,5 @@ router.route("/:timelineId")
   .put([validateParam(schemas.idSchema, "timelineId"), validateBody(schemas.timelineSchema)], TimelineController.replaceTimeline)
   .patch([validateParam(schemas.idSchema, "timelineId"), validateBody(schemas.optionalTimelineSchema)], TimelineController.updateTimeline)
 	.delete(validateParam(schemas.idSchema,"timelineId"), TimelineController.deleteTimeline);
-/*
-router.route("/create")
-	.post(validateBody(schemas.createTagSchema), TagController.createTag);*/
 
 module.exports = router;

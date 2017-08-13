@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const autoIncrement = require("mongoose-auto-increment");
-
 var connection = mongoose.createConnection("mongodb://localhost/blog");
 autoIncrement.initialize(connection);
 

@@ -28,10 +28,6 @@ router.route("/:postId/comments")
   .get(validateParam(schemas.integerIdSchema, "postId"), PostController.getPostComments)
   .post([validateParam(schemas.idSchema, "postId"), validateBody(schemas.relPostCommentSchema)], PostController.newPostComment);
 
-
-/*router.route("/email/:email")
-	.get(PostController.getUserPosts);*/
-
 var path=require("path");
 var upload = multer({ dest: "src/img/upload/"});
 var type = upload.single('photo');

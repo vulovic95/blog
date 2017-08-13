@@ -53,7 +53,8 @@ export class Content extends React.Component{
 		}, 500);
 	}
 	updateTimeline(id){
-		this.props.updateTimeline(this.state);
+		let {text, year, singlePoint, timelineType} = this.state;
+		this.props.updateTimeline({id, text, year, singlePoint, timelineType});
 		resetField("text", "year", "timelineType", "singlePoint");
 		$(".update").addClass("hide");
 		$("#btnTimeline").fadeIn("slow");

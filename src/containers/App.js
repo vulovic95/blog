@@ -205,7 +205,6 @@ class App extends React.Component{
 	 	          getTutorialsByPostId={this.props.getTutorialsByPostId}
 		          email={loggedEmail} />
 
-
  	          <PropsRoute component={NotFound} />
        	  </Switch>
 	  		 <Footer/>

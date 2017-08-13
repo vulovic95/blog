@@ -1,7 +1,5 @@
 const postReducer = (state = {
-	post:{
-		postId: "", id: "", tags: [], title: "", description: "", photo:"", author:"", comments:[], tutorials:[]
-	},
+	post:{ postId: "", id: "", tags: [], title: "", description: "", photo:"", author:"", comments:[], tutorials:[]	},
 	posts:[],
 	tags:[],
 	tutorials:[],
@@ -30,10 +28,7 @@ const postReducer = (state = {
 			state = { ...state }	
 			break;		
 		case "DELETE_POST_FULFILLED": 
-			state = {
-				...state,
-			  posts:state.posts.filter( post => post._id !== action.payload.data.id ) 
-			}
+			state = {	...state,	  posts:state.posts.filter( post => post._id !== action.payload.data.id ) }
 			break;
 		case "DELETE_POST_REJECTED":
 			state = { ...state, error:action.payload}
@@ -51,10 +46,7 @@ const postReducer = (state = {
 			state = { ...state }
 			break;
 		case "UPDATE_POST_FULFILLED":
-			state = {
-				 ...state,
-				 posts: state.posts.map(item=>  item.postId === action.payload.data.id ? {...item, title: action.payload.data.title, description: action.payload.data.description} : item )
-			}
+			state = {	 ...state, posts: state.posts.map(item=>  item.postId === action.payload.data.id ? {...item, title: action.payload.data.title, description: action.payload.data.description} : item )	}
 			break;
 		case "UPDATE_POST_REJECTED":
 			state = { ...state, error: action.payload }
