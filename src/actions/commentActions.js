@@ -7,6 +7,7 @@ export function getCommentsByPostId(id) {
         payload: request
     }
 } 
+
 export function addComment(data) {
     const request = axios.post(`http://localhost:3000/api/comments`, data);
     return {
@@ -14,6 +15,7 @@ export function addComment(data) {
         payload: request
     }
 } 
+
 export function deleteComment(id) {
     const request = axios.delete(`http://localhost:3000/api/comments/${id}`);
     return {

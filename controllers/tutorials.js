@@ -21,17 +21,3 @@ module.exports = {
 		res.status(200).json({success:true, id: tutorialId});
 	}
 }
-
-/*,
-	newTag: async(req, res, next) => {
-		const parent = await Post.findById(req.value.body.parent);
-		const tag = await Tag.findById(req.value.body.tag);
-		parent.tags.push(tag);
-		await parent.save();
-		res.status(200).json(parent);
-	},
-	getTag: async(req, res, next) => {
-		const tag = await Tag.findById(req.value.params.tagId);
-		res.status(200).json(tag);
-	}
-	}*/

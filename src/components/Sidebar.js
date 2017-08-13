@@ -9,9 +9,6 @@ import FaTag from "react-icons/lib/fa/tag";
 import {Input} from "./Input";
 
 export class Sidebar extends React.Component{
-  componentWillMount(){
-    this.props.getTags();
-  }
   componentDidMount(){
     window.scrollTo(0, 0);
   }
@@ -82,7 +79,6 @@ export class Sidebar extends React.Component{
 	}
 }
 Sidebar.propTypes={
-  getTags: PropTypes.func.isRequired,
   allPosts: PropTypes.array.isRequired,
   tag: PropTypes.object.isRequired,
   search: PropTypes.string.isRequired,

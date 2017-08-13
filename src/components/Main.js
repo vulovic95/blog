@@ -37,7 +37,7 @@ export class Main extends React.Component{
             {this.props.paginate(posts, this.props.pageSize, this.props.pageNumber)}
             {posts.length > 10 && <Pagination onIncrement={()=>this.props.incrementPage(posts.length)} onDecrement={()=>this.props.decrementPage()} /> }
           </div>
-          <Sidebar tutorial={this.props.tutorial} getTags={this.props.getTags} tag={this.props.tag} allPosts={this.props.post.posts} search={this.props.search} updateSearch={this.props.updateSearch} onFocus={this.props.onFocus} onBlur={this.props.onBlur}/>
+          <Sidebar tutorial={this.props.tutorial} tag={this.props.tag} allPosts={this.props.post.posts} search={this.props.search} updateSearch={this.props.updateSearch} onFocus={this.props.onFocus} onBlur={this.props.onBlur}/>
           <div className="clear"></div>
         </main>
      </div>
@@ -50,7 +50,6 @@ Main.propTypes = {
   onFocus: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
   getTagsByPostId: PropTypes.func.isRequired,
-  getTags: PropTypes.func.isRequired,
   tag: PropTypes.object.isRequired,
   search: PropTypes.string.isRequired,
   updateSearch: PropTypes.func.isRequired,

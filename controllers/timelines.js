@@ -7,7 +7,6 @@ module.exports = {
 	},
 	createTimeline: async(req, res, next) => {
 		const timeline = new Timeline(req.value.body);
-
 		await timeline.save();
 		res.status(200).json(timeline);
 	},

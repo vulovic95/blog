@@ -7,6 +7,7 @@ export function getTimeline() {
         payload: request
     }
 } 
+
 export function deleteTimeline(id){
 	const request = axios.delete(`http://localhost:3000/api/timelines/${id}`);
 	return {
@@ -14,6 +15,7 @@ export function deleteTimeline(id){
 		payload: request
 	} 
 }
+
 export function createTimeline(data) {
     const request = axios.post(`http://localhost:3000/api/timelines`, data);
     return {
@@ -21,6 +23,7 @@ export function createTimeline(data) {
         payload: request
     } 
 }
+
 export function updateTimeline(data) {
     const timelineId = data.id;
     delete data.id;

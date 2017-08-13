@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export function getAllPosts() {
     const request = axios.get(`http://localhost:3000/api/posts`); 
     return {
@@ -6,6 +7,7 @@ export function getAllPosts() {
         payload: request
     }
 } 
+
 export function getPostById(id) {
     const request = axios.get(`http://localhost:3000/api/posts/${id}`); 
     return {
@@ -13,13 +15,7 @@ export function getPostById(id) {
         payload: request
     }
 }
-export function getUserPosts(email) {
-    const request = axios.get(`http://localhost:3000/api/posts/email/${email}`); 
-    return {
-        type: "GET_USER_POSTS",
-        payload: request
-    }
-}
+
 export function deletePost(id) {
     const request = axios.delete(`http://localhost:3000/api/posts/${id}`);
     return {
@@ -27,6 +23,7 @@ export function deletePost(id) {
         payload: request
     }
 }
+
 export function addPost(data) {
     const request = axios.post(`http://localhost:3000/api/posts/`, data);
     return {
@@ -34,6 +31,7 @@ export function addPost(data) {
         payload: request
     }
 }
+
 export function updatePost(id,data) {
     const request = axios.patch(`http://localhost:3000/api/posts/${id}`, data);
     return {
@@ -56,11 +54,4 @@ export function getTutorialsByPostId(id) {
         type: "GET_TUTORIALS_BY_POST_ID",
         payload: request
     }
-} 
-/*export function getCommentsByPostId(id) {
-    const request = axios.get(`http://localhost:3000/api/posts/${id}/comments`); 
-    return {
-        type: "GET_COMMENTS_BY_POST_ID",
-        payload: request
-    }
-} */
+}

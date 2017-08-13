@@ -45,20 +45,15 @@ module.exports = {
 	},
 	newPostComment: async(req, res, next) => {
 		const { postId } = req.value.params;
-		const newComment =  new Comment(req.value.body);//create a new comment
+		const newComment =  new Comment(req.value.body);
 
-		const post = await Post.findById(postId); //get post where we want to append comment
-		newComment.parent = post; //assign post as a comment parent
-		await newComment.save();//save the comment
+		const post = await Post.findById(postId);
+		newComment.parent = post;
+		await newComment.save();
 
-		post.comments.push(newComment); //add comment to the post's array Comments
-		await post.save();//save post this time
+		post.comments.push(newComment);
+		await post.save();
 		res.status(200).json(newComment);
-	},
-	getUserPosts: async(req, res, next) => {
-		const { email }  = req.params;
-		const posts = await Post.find({email:email});
-		res.status(200).json(posts);
 	},
 	deletePost: async(req, res, next) => {
 		const { postId } = req.value.params;

@@ -7,6 +7,7 @@ export function getTags() {
         payload: request
     }
 } 
+
 export function deleteTag(id){
 	const request = axios.delete(`http://localhost:3000/api/tags/${id}`);
 	return {
@@ -14,6 +15,7 @@ export function deleteTag(id){
 		payload: request
 	} 
 }
+
 export function createTag(data) {
     const request = axios.post(`http://localhost:3000/api/tags/create`, data);
     return {

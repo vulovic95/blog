@@ -29,8 +29,8 @@ router.route("/:postId/comments")
   .post([validateParam(schemas.idSchema, "postId"), validateBody(schemas.relPostCommentSchema)], PostController.newPostComment);
 
 
-router.route("/email/:email")
-	.get(PostController.getUserPosts);
+/*router.route("/email/:email")
+	.get(PostController.getUserPosts);*/
 
 var path=require("path");
 var upload = multer({ dest: "src/img/upload/"});

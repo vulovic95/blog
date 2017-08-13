@@ -97,11 +97,3 @@ if(process.env.NODE_ENV==="production"){
 }
 
 module.exports =  config;
-
-
-  /*resolve: {
-      alias: {
-          'react': 'preact-compat',
-          'react-dom': 'preact-compat'
-      }
-  },*/

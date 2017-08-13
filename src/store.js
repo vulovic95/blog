@@ -2,7 +2,6 @@ import {createStore, combineReducers, applyMiddleware} from "redux";
 import logger from "redux-logger";
 import generalReducer from "./reducers/generalReducer";
 import authReducer from "./reducers/authReducer";
-import userReducer from "./reducers/userReducer";
 import postReducer from "./reducers/postReducer";
 import commentReducer from "./reducers/commentReducer";
 import tagReducer from "./reducers/tagReducer";
@@ -14,7 +13,6 @@ import promise from "redux-promise-middleware";
 import {firebaseApp} from "./firebase"; 
 
 import {logUserData, getAuthenticatedUsers} from "./actions/authActions";
-import {getUserPosts} from "./actions/postActions";
 import {getAllPosts} from "./actions/postActions";
 import {getTimeline} from "./actions/timelineActions";
 import {getTags} from "./actions/tagActions";
@@ -25,7 +23,7 @@ const error = (store) => (next) => (action) =>{
 	catch(err){	console.log("Caught an exception: ",err)	}
 }   
 
-const store = createStore(combineReducers({generalReducer, authReducer, userReducer, postReducer, commentReducer, tagReducer, timelineReducer, tutorialReducer}), {}, applyMiddleware(promise(),thunk, logger, error));
+const store = createStore(combineReducers({generalReducer, authReducer, postReducer, commentReducer, tagReducer, timelineReducer, tutorialReducer}), {}, applyMiddleware(promise(),thunk, logger, error));
 
 store.subscribe(()=>{});
 firebaseApp.auth().onAuthStateChanged((user) => {
@@ -39,7 +37,6 @@ firebaseApp.auth().onAuthStateChanged((user) => {
 		document.getElementById("buttonLogin").classList.add("hide"); 
 		const {email} = user;
 		store.dispatch(logUserData(user));
-		//store.dispatch(getUserPosts(email));
 	}
 	else{
 		document.getElementById("buttonLogin").classList.remove("hide");

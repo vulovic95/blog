@@ -7,13 +7,13 @@ module.exports = {
 		res.status(200).json(comments);
 	},
 	newComment: async(req, res, next) => {
-		const parent = await Post.findById(req.value.body.parent);//find the actual post
-		const newComment = req.value.body; //create a new comment
+		const parent = await Post.findById(req.value.body.parent);
+		const newComment = req.value.body; 
 		delete newComment.parent;
 		const comment = new Comment(req.value.body);
 		comment.parent = parent;
 		await comment.save();
-		parent.comments.push(comment);//add new comment to post
+		parent.comments.push(comment);
 		await parent.save();
 		res.status(200).json(comment);
 	},

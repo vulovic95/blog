@@ -15,6 +15,7 @@ export function deleteTutorial(id){
 		payload: request
 	} 
 }
+
 export function createTutorial(data) {
     const request = axios.post(`http://localhost:3000/api/tutorials/create`, data);
     return {

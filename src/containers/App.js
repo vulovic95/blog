@@ -20,9 +20,8 @@ import {EditPost} from "../components/EditPost";
 import {Content} from "../components/Content";
 
 import {setStyle, unsetStyle, incrementPage, decrementPage, updateSearch, updateTagSearch, updateTutorialSearch} from "../actions/generalActions";
-import {getAllPosts, getPostById, deletePost, updatePost, addPost, getTagsByPostId, getUserPosts, getTutorialsByPostId} from "../actions/postActions";
+import {getAllPosts, getPostById, deletePost, updatePost, addPost, getTagsByPostId, getTutorialsByPostId} from "../actions/postActions";
 import {addComment, getCommentsByPostId, deleteComment} from "../actions/commentActions";
-import {createUser, findUserByEmail} from "../actions/userActions";
 import {getTags, createTag, deleteTag} from "../actions/tagActions";
 import {createTimeline, deleteTimeline, updateTimeline} from "../actions/timelineActions";
 import {getTutorials, createTutorial, deleteTutorial} from "../actions/tutorialActions";
@@ -70,7 +69,6 @@ class App extends React.Component{
 		          onFocus={this.props.general.onFocus}
 		          onBlur={this.props.general.onBlur}
 	          	getTagsByPostId={this.props.getTagsByPostId}
-		          getTags={this.props.getTags}
 		          tag={this.props.tag}
 		          search={this.props.general.search}
 		          updateSearch={this.props.updateSearch}
@@ -221,7 +219,6 @@ const mapStateToProps = (state) => {
 	return {
 		general: state.generalReducer,
 		auth: state.authReducer,
-		user: state.userReducer,
 		post: state.postReducer,
 		comment: state.commentReducer,
 		tag: state.tagReducer,
@@ -259,20 +256,11 @@ const mapDispatchToProps = (dispatch) => {
 		addComment:(data)=>{
 			dispatch(addComment(data))
 		},
-		findUserByEmail:(email)=>{
-			dispatch(findUserByEmail(email));
-		},
 		deleteComment:(id)=>{
 			dispatch(deleteComment(id))
 		},
-		createUser:(data)=>{
-			dispatch(createUser(data));
-		},
 		updatePost:(id, data)=>{
 			dispatch(updatePost(id, data))
-		},
-		getUserPosts:(email)=>{
-			dispatch(getUserPosts(email));
 		},
 		incrementPage:(length)=>{
 			dispatch(incrementPage(length));

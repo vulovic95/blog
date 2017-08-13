@@ -3,7 +3,6 @@ const postReducer = (state = {
 		postId: "", id: "", tags: [], title: "", description: "", photo:"", author:"", comments:[], tutorials:[]
 	},
 	posts:[],
-	userPosts:[],
 	tags:[],
 	tutorials:[],
 	error: null
@@ -33,31 +32,17 @@ const postReducer = (state = {
 		case "DELETE_POST_FULFILLED": 
 			state = {
 				...state,
-				userPosts: state.userPosts.filter(post =>
-			    post._id !== action.payload.data.id
-			  ),
-			  posts:state.posts.filter(post =>
-			    post._id !== action.payload.data.id
-			  ) 
+			  posts:state.posts.filter( post => post._id !== action.payload.data.id ) 
 			}
 			break;
 		case "DELETE_POST_REJECTED":
 			state = { ...state, error:action.payload}
 			break;
-		case "GET_USER_POSTS":
-			state = { ...state}
-			break;
-		case "GET_USER_POSTS_FULFILLED":
-			state = { ...state, userPosts: action.payload.data.reverse() }
-			break;
-		case "GET_USER_POSTS_REJECTED":
-			state = { ...state, error:action.payload }
-			break;
 		case "ADD_POST":
 			state = { ...state }
 			break;
 		case "ADD_POST_FULFILLED":
-			state = { ...state, userPosts:[...state.userPosts, action.payload.data], posts:[...state.posts, action.payload.data] }
+			state = { ...state, posts:[...state.posts, action.payload.data] }
 			break;
 		case "ADD_POST_REJECTED":
 			state = { ...state, error:action.payload }
