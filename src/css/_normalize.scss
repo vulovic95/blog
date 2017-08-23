@@ -7,6 +7,19 @@
 	outline:none;
 	font-weight:400;
 }
+input:invalid, textarea:invalid {
+    box-shadow: none;
+}
+:invalid {
+  box-shadow: none;
+}
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
 h1, h2, h3, h4, h5, h6, p, span {
 	font-weight: normal;
 }

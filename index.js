@@ -5,14 +5,18 @@ const bodyParser = require("body-parser");
 const helmet = require("helmet");
 var cors = require('cors');
 var fs = require('fs');
-var multer  = require('multer'); 
+var multer  = require('multer');
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/blog");
+//mongoose.connect("mongodb://hello:world@ds153853.mlab.com:53853/blog");
+mongoose.connection.on("connected",()=>console.log("Connected!!!"));
+mongoose.connection.on("disconnected",()=>console.log("Not connected!!!"));
 
+var path = require("path");
 const app = express();
 app.use(helmet());
 app.use(cors());
-app.use(express.static("src"));
+app.use(express.static("dist"));
 
 const posts = require("./routes/posts");
 const comments = require("./routes/comments");
@@ -25,7 +29,7 @@ const authentications = require("./routes/authentications");
 app.use(morganLogger("dev"));
 app.use(bodyParser.json());
 
-//ROUTES 
+//ROUTES
 app.use("/api/posts", posts);
 app.use("/api/comments", comments);
 app.use("/api/tags", tags);
@@ -34,7 +38,7 @@ app.use("/api/tutorials", tutorials);
 app.use("/api/authentications", authentications);
 
 
-//Catch 404 errors 
+//Catch 404 errors
 
 app.use((err, req, res, next) => {
 	const error = app.get("env") === "development" ? err : {};
@@ -56,8 +60,12 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
-}  
-app.use(allowCrossDomain); 
+}
+app.use(allowCrossDomain);
 
-const port = app.get("port") || 3000;
+app.get("*", (req, res) => {
+	res.sendFile('dist/index.html' , { root : __dirname});
+})
+
+const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log("Server listening on ", port));
