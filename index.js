@@ -7,10 +7,38 @@ var cors = require('cors');
 var fs = require('fs');
 var multer  = require('multer');
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/blog");
+//mongoose.connect("mongodb://localhost/blog");
 //mongoose.connect("mongodb://hello:world@ds153853.mlab.com:53853/blog");
-mongoose.connection.on("connected",()=>console.log("Connected!!!"));
-mongoose.connection.on("disconnected",()=>console.log("Not connected!!!"));
+//var uri = "mongodb://localhost/blog";
+//var uri = "mongodb://ivandrugi:ivandrugi@ds153853.mlab.com:53853/blog";
+//var MongoClient = require('mongodb').MongoClient;
+//var uri="mongodb://ivan:NVQsM3sxGOS413zu@ivans-cluster-shard-00-00-f4ws5.mongodb.net:27017,ivans-cluster-shard-00-01-f4ws5.mongodb.net:27017,ivans-cluster-shard-00-02-f4ws5.mongodb.net:27017/admin?ssl=true&replicaSet=ivans-cluster-shard-0&authSource=admin";
+// MongoClient.connect(uri, function(err, db) {
+// 	console.log("Error");
+//   //db.close();
+// });
+//mongoose.connect(uri);
+//mongoose.connection.on("connected",()=>console.log("Connected!!!"));
+//mongoose.connection.on("disconnected",()=>console.log("Not connected!!!"));
+
+// MongoClient.connect(uri, function (err, db) {
+//     if (err) {
+//         throw err;
+//     } else {
+//         console.log("successfully connected to the database");
+//     }
+//     db.close();
+// });
+
+
+//var mongoose = require('mongoose');
+
+var mongoURI = "mongodb://ivan:k4tastrofa@ds153853.mlab.com:53853/blog";
+var MongoDB = mongoose.connect(mongoURI).connection;
+MongoDB.on('error', function(err) { console.log(err.message); });
+MongoDB.once('open', function() {
+  console.log("mongodb connection open");
+});
 
 var path = require("path");
 const app = express();
