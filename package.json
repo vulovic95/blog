@@ -10,8 +10,7 @@
     "deploy": "npm run build && firebase deploy",
     "firebase-init": "firebase login && firebase init",
     "server": "nodemon index.js",
-    "dev": "concurrently \"npm run start\" \"npm run server\"",
-    "postinstall":"webpack -p"
+    "dev": "concurrently \"npm run start\" \"npm run server\""
   },
   "keywords": [],
   "author": "",
