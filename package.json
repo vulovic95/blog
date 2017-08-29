@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "node index.js",
     "build": "NODE_ENV='production' webpack -p",
     "build:prod": "webpack -p",
     "deploy": "npm run build && firebase deploy",
     "firebase-init": "firebase login && firebase init",
     "server": "nodemon index.js",
-    "dev": "concurrently \"npm run start\" \"npm run server\""
+    "dev": "concurrently \"npm run start\" \"npm run server\"",
+    "postinstall":"webpack -p"
   },
   "keywords": [],
   "author": "",

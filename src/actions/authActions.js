@@ -8,7 +8,7 @@ export function logUserData(user){
 }
 
 export function getAuthenticatedUsers(data) {
-  const request = axios.get(`http://localhost:3000/api/authentications`); 
+  const request = axios.get(`api/authentications`);
   return {
       type: "GET_AUTHENTICATED_USERS",
       payload: request
@@ -16,7 +16,7 @@ export function getAuthenticatedUsers(data) {
 }
 
 export function createAuthenticatedUser(data) {
-  const request = axios.post(`http://localhost:3000/api/authentications`, data); 
+  const request = axios.post(`api/authentications`, data);
   return {
       type: "CREATE_AUTHENTICATED_USER",
       payload: request
@@ -24,7 +24,7 @@ export function createAuthenticatedUser(data) {
 }
 
 export function deleteAuthenticatedUser(authenticatedId) {
-    const request = axios.delete(`http://localhost:3000/api/authentications/${authenticatedId}`);
+    const request = axios.delete(`api/authentications/${authenticatedId}`);
     return {
         type: "DELETE_AUTHENTICATED_USER",
         payload: request
