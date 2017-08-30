@@ -16,7 +16,7 @@ var config = {
 		filename: "bundle.js",
 		publicPath:"/"
 	},
-	module: {  
+	module: {
 		rules:[
 			{
 				test: /\.js?$/,
@@ -28,7 +28,7 @@ var config = {
 						}
 					}
 				]
-			}, 
+			},
 			{
 				test: /\.scss$/,
 				use: extractPlugin.extract({
@@ -88,12 +88,16 @@ if(process.env.NODE_ENV==="production"){
 				"NODE_ENV": JSON.stringify(process.env.NODE_ENV)
 			}
 		}),
-		new CopyWebpackPlugin([
-       { from: './src/img/' },
-       { from: './src/img/upload/' }
-    ]),
 		new webpack.optimize.UglifyJsPlugin()
 	)
 }
 
 module.exports =  config;
+
+
+
+
+// new CopyWebpackPlugin([
+//    { from: './src/img/' },
+//    { from: './src/img/upload/' }
+// ]),
