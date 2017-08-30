@@ -14,7 +14,7 @@
     "firebase-init": "firebase login && firebase init",
     "server": "nodemon index.js",
     "dev": "concurrently \"npm run start\" \"npm run server\"",
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=development; npm install",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=development; npm install --only=dev --dev",
     "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p"
   },
   "keywords": [],
