@@ -34,7 +34,7 @@ mongoose.Promise = global.Promise;
 //var mongoose = require('mongoose');
 
 var mongoURI = "mongodb://ivan:k4tastrofa@ds153853.mlab.com:53853/blog";
-var MongoDB = mongoose.connect(mongoURI).connection;
+var MongoDB = mongoose.connect(process.env.MONGOLAB_URI || mongoURI).connection;
 MongoDB.on('error', function(err) { console.log(err.message); });
 MongoDB.once('open', function() {
   console.log("mongodb connection open");
