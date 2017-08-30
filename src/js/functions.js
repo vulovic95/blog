@@ -22,7 +22,7 @@ export const isNotEmpty = (...fields) => {
 }
 export const uploadPhoto = (form) => {
   $.ajax({
-     url: 'http://localhost:3000/api/posts/file_upload',
+     url: 'api/posts/file_upload',
      type: 'POST',
      data: new FormData($('#'+form)[0]),
      cache: false,
