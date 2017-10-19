@@ -52,8 +52,8 @@ class App extends React.Component{
 		this.props.auth.authenticatedEmails.map(auth=>authenticatedEmails.push(auth.email));
   	return(
   		<BrowserRouter history={browserHistory}>
-  			<div>
-      	  <Menu user={this.props.auth.user} loggedEmail={loggedEmail} listOfAuthenticatedEmails={authenticatedEmails}/>
+			<div>
+      	 	<Menu user={this.props.auth.user} loggedEmail={loggedEmail} listOfAuthenticatedEmails={authenticatedEmails}/>
 	  			<Header />
 	  			<Switch>
 	  				<PropsRoute exact path="/" component={Home}
@@ -61,7 +61,7 @@ class App extends React.Component{
 	  					setStyle={this.props.setStyle}
 		          unsetStyle={this.props.unsetStyle}
 	 	          timeline={this.props.timeline.timelines}	/>
-
+						
 	          <PropsRoute exact path="/blog" component={Main}
 	 	          style={this.props.general.style}
 		          setStyle={this.props.setStyle}
