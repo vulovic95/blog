@@ -3,7 +3,7 @@ const morganLogger = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
-//var cors = require('cors');
+var cors = require('cors');
 var fs = require('fs');
 var multer  = require('multer');
 
@@ -20,7 +20,7 @@ MongoDB.once('open', function() {
 var path = require("path");
 const app = express();
 app.use(helmet());
-//app.use(cors());
+app.use(cors());
 app.use(express.static("dist"));
 
 const posts = require("./routes/posts");
