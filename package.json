@@ -7,7 +7,7 @@
     "node": "8.4.0"
   },
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "starting": "webpack-dev-server --open",
     "build": "NODE_ENV='production' webpack -p",
     "build:prod": "webpack -p",
@@ -40,7 +40,7 @@
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "sass-loader": "^6.0.5",
-    "webpack": "^2.5.1",
+    "webpack": "^2.7.0",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
